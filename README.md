@@ -1,5 +1,4 @@
 [Main St Mission's](http://www.mainstmission.org/) Open Cupboard
-===================
 
 [![Build Status](https://secure.travis-ci.org/MainStMission/food-pantry-manager.png?branch=master)](http://travis-ci.org/MainStMission/food-pantry-manager) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/MainStMission/food-pantry-manager
 ## Who Are We?
@@ -34,3 +33,9 @@ See the [Contribution Guidelines](https://github.com/MainStMission/food-pantry-m
 We have a [google group mailing list](https://groups.google.com/forum/?fromgroups#!forum/main-street-mission-development).
 Feel free to ask us questions there, or report a problem with an issue here on github. If you have a problem with anything not code related,
 then send us a message on the mailing list and we'll do the best we can to help you out.
+
+This App is designed for Openshift
+
+The OpenShift `ruby` cartridge documentation can be found at:
+
+http://openshift.github.io/documentation/oo_cartridge_guide.html#ruby
