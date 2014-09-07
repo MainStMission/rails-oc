@@ -1,8 +1,7 @@
-[Main St Mission's](http://www.mainstmission.org/) food-pantry-manager
+[Main St Mission's](http://www.mainstmission.org/) Open Cupboard
 ===================
 
-[![Build Status](https://secure.travis-ci.org/MainStMission/food-pantry-manager.png?branch=master)](http://travis-ci.org/MainStMission/food-pantry-manager) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/MainStMission/food-pantry-manager)
-
+[![Build Status](https://secure.travis-ci.org/MainStMission/food-pantry-manager.png?branch=master)](http://travis-ci.org/MainStMission/food-pantry-manager) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/MainStMission/food-pantry-manager
 ## Who Are We?
 
 ![Main Street Mission](http://msm2.webvanta.com/msmcolor.png)
