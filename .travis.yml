@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 1.9.3
+before_script:
+  - rake travis:setup
+notifications:
+  webhooks:
+    urls:
+      - https://koideploy.com/webhooks/travis-ci/semmons99
+    on_success: always
+    on_failure: never

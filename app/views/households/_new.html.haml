@@ -1,0 +1,217 @@
+#mhead.well.well-large
+  %h4 Household Members: #{household.neighbors.count}
+  %h5 Total Visits: #{household.visits.count}
+  / %h5 Last Visit: #{household.last_visit}
+  %h5 Allowed: #{household.box_type}
+  / = visit_check
+.span-one-third
+  = link_to household.household_name, edit_household_path(household), class: 'btn  btn-large'
+- if household.post_needs
+  .offset2
+    .span5
+      #reminder.well
+        %h4 #{household.special_needs}
+.row
+= simple_form_for household,  validate: true, html: { :class => 'form-inline' } do |f|
+  #neighbor-table
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Age
+          %th Notes
+      %tbody
+        - household.neighbors.each do |neighbor|
+        - @household = household
+          %tr
+            %td= link_to neighbor.name, url_for([@household, neighbor])
+            %td= neighbor.age
+            %td= word_wrap neighbor.notes
+  .span11
+  %p.visit
+    = f.simple_fields_for :visits do |v|
+      #visit.visit-color.well.well-large
+        #visit-date
+        = v.input  :visited_on, as: :date, label: 'Date of Visit', default: Date.today, order: [:month, :day],input_html: { class: 'span2' }
+        %br
+          = v.input :neighbor, collection: household.neighbors.all, default: 1, validate: { :presence => true }
+        %br
+        .span3
+          = v.input  :starch,  label: false,  collection: [ 'Beans','Rice','Potatoes','nothing' ] , selected: 'Beans', input_html: { class: 'span2' }
+        .span3
+          = v.input  :cereal,  label: false,  collection: ['Cereal','Grits','Oatmeal', 'Pop Tarts', 'Pancakes'], selected: 'Cereal',input_html: {class: 'span2' }
+        .span3
+          = v.input :option1,  label: false,  collection: ['Peanut Butter','Jelly', 'PB & J'], prompt: 'Options', input_html: {class: 'span2' }
+        .span11
+        %br
+        %br
+        - if !household.food_alert.blank?
+          %h4 Food Restrictions: #{household.food_alert}
+        = v.input  :items_received, prompt:'Items here will show up on the printer order', :label => 'Special Needs',input_html: {rows: 4, class: 'span9' }
+        = v.input  :notes,          :label => 'Notes',input_html: {rows: 4, class: 'span9' }
+        .actions.span12
+        = link_to 'Print Order', household_path(household, format: "pdf"), id: 'submit-btn', class: 'btn btn-inverse btn-info'
+        = v.button :submit,  :class => 'btn btn-inverse', id: 'submit-btn'   
+    %hr
+    .span11
+  .tabbable
+    %ul.nav.nav-tabs
+      %li
+        %a{"data-toggle" => "tab", :href => "#home"} Address
+      %li
+        %a{"data-toggle" => "tab", :href => "#money"} Income
+      %li
+        %a{"data-toggle" => "tab", :href => "#visits"} Visits
+      %li
+        %a{"data-toggle" => "tab", :href => "#mission"} Mission
+  .tab-content
+    #home.tab-pane.neighbor-color.well.well-largeo
+      #house_address.span-one-third
+        %h3 Household Address
+        .span3
+          = f.input :street, input_html: {class: 'span3'}
+        .span1
+          = f.input :apt, label: 'Apartment', input_html: {class: 'span1'}
+        .row
+        .span3
+          = f.input :city, prompt: 'City', input_html: {class: 'span3'}
+        .span1
+          = f.input :state, prompt: 'State', collection: states, input_html: {class: 'span1'}
+        .row
+        .span3
+        .row
+        .span2
+          = f.input :proof_of_residency_type, label: 'Residency', collection: ['Drivers License','Received Mail','Passport', 'Utility Bill','Food Stamp Card', 'Other'], input_html:{class:'span2'}
+        .span2
+          = f.input :date_of_proof, as: :date_picker, input_html: {id: 'dpYears', class: 'datepicker span2' }
+        .row
+        .span3
+          = f.input :zip, label: 'Zip Code', input_html: {class: 'span2'}
+        .row
+        .span4
+          = f.input :food_alert, label: 'Special Food needs', tooltip: 'This will print on the food order', input_html: {class: 'span4'}
+        .row
+        .span4
+          = f.input :special_needs, label: 'Notices and Reminders', input_html: {class: 'span4'}
+        .row
+        .span4
+          = f.input :prayer_request, label: 'Prayer Request', input_html: {class: 'span4'}
+        .row
+        .span2
+          = f.input :post_needs, label: 'Post Notices'
+        .span2
+          = f.input :post_prayer,label: 'Post Prayer'
+      #house_notes.span-two-thirds.well.well-large
+        %h3 Notes and Comments
+        = f.input :notes, label: false, input_html:{rows: 21, class: 'span5'}, autofocus: true
+      .row
+    #money.tab-pane.well.well-large.money-color
+      %table.table.table-bordered
+        %thead
+          %th Income
+          %th $$
+          %th Expenses
+          %th $$
+        %tbody
+          %tr
+          = simple_form_for household do |f|
+            %td= f.input :income1,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :inc_amt1, as: :string, label: false, input_html: {class: 'span1'}
+            %td= f.input :expense1,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Rent'
+            %td= f.input :exp_amt1, as: :string, label: false , input_html: {class: 'span1'}
+            %tr
+            %td= f.input :income2,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :inc_amt2, as: :string, label: false, input_html: {class: 'span1'}
+            %td= f.input :expense2,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}, selected: 'Utilities'
+            %td= f.input :exp_amt2, as: :string, label: false , input_html: {class: 'span1'}
+            %tr
+            %td= f.input :income3,label: false, collection: ['Food Stamps','Disability','Employment','Child Support','Family', 'SSI', 'Other'], input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :inc_amt3, as: :string, label: false, input_html: {class: 'span1'}
+            %td= f.input :expense3,label: false, collection: ['Rent','Utilities','Child Support','Car Payment','Mortgage','Credit Card','Probation', 'Other'], input_html: {class: 'form-horizontal', class: 'span2'}
+            %td= f.input :exp_amt3, as: :string, label: false , input_html: {class: 'span1'}
+            %tr
+            %td= f.input :income4,label: false, input_html: {class: 'form-inline', class: 'span2'}
+            %td= f.input :inc_amt4, as: :string, label: false, input_html: {class: 'span1'}
+            %td= f.input :expense4,label: false, input_html: {class: 'form-horizontal', class: 'span2'}
+            %td= f.input :exp_amt4, as: :string, label: false , input_html: {class: 'span1'}
+            %tr
+            %tr.success.well.well-large
+              %td  Total Income
+              %td  #{ household.inc_amt1.to_i + household.inc_amt2.to_i + household.inc_amt3.to_i + household.inc_amt4.to_i}
+              %td  Total Expenses
+              %td #{ household.exp_amt1.to_i + household.exp_amt2.to_i + household.exp_amt3.to_i + household.exp_amt4.to_i }
+      .row
+      .span11
+        = f.input :money_notes, label: 'Financial Notes', input_html:{rows: 2, class: 'span10' }
+      .row
+    #visits.tab-pane
+      .tabbable
+        - @date = Date.today
+        - @pdate = @date.prev_month
+        - @ppdate = @pdate.prev_month
+        %ul.nav.nav-tabs
+          %li
+            %a{"data-toggle" => "tab", :href => "#ppast"} #{@ppdate.strftime("%B %Y")}
+          %li
+            %a{"data-toggle" => "tab", :href => "#past"} #{@pdate.strftime("%B %Y")}
+          %li
+            %a{"data-toggle" => "tab", :href => "#current"} #{@date.strftime("%B %Y")}
+      .tab-content
+        #current.tab-pane.active
+          %h2
+            = @date.strftime("%B %Y")
+          = calendar @date do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+        #past.tab-pane
+          %h2
+            = @pdate.strftime("%B %Y")
+          = calendar @pdate do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+        #ppast.tab-pane
+          %h2
+            = @ppdate.strftime("%B %Y")
+          = calendar @ppdate do |date|
+            = date.day
+            - if household.visits.count > 0
+              - if visits_by_date[date]
+                %ul
+                  - visits_by_date[date].each do |visitor|
+                    %li= visitor.show_neighbor_name
+      %hr
+    #mission.tab-pane.well.well-large
+      .span5
+        = f.input :how_heard, label: 'How did you hear about the Mission?', collection: ['From a Friend','Family member', 'passing by', 'Facebook', 'Referral from Agency'], input_html: {class: 'span4'}
+      .span5
+        = f.input :option1,  label: 'If you attend Church, what Church do you attend?', input_html: {rows: 1, class: 'span5'}
+      .row
+      .span5
+        = f.input :opt_val1, label: 'Have you recieved help from another Food Pantry?', collection: ['Yes - within 6 months', 'Yes - several years ago', 'No - this is the first time'], input_html: {rows: 1, class: 'span4'}
+      .span5
+        = f.input :option2, label: 'Do you have any suggestions to help the Mission?',input_html: {rows: 1, class: 'span5'}
+      .row
+      = f.input :christmas,  label: 'Add to Christmas list', wrapper:  :inline_checkbox
+      = f.input :bool1, label: 'Refered to Rowan Helping Ministries', wrapper:  :inline_checkbox
+      = f.input :bool2, label: 'Refered to Cabarus County', wrapper: :inline_checkbox
+      .hr
+      .span4
+        = f.input :s_numb, label: 'Closed file Number:', input_html: {class: 'span1'} 
+      .span4
+        = f.input :s_box, label: 'Storage Box Number:', input_html: {class: 'span1'}
+      .span2
+        = f.input :bool3, label: 'Pending', wrapper: :inline_checkbox
+      .row
+      .span10
+      .hr
+   
+
+

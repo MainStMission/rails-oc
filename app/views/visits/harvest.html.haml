@@ -1,0 +1,79 @@
+%section.panel
+  %header
+    %h1
+      %i.icon-home.icon-large
+      &nbsp&nbsp&nbspHouseholds
+  .content
+    .span12
+    .span-one-third
+      = image_tag('second_logo.jpg')
+    #harvest_report
+      %h2 Monthly Report
+    .row
+    #msm_id.span-one-third
+      %h4 Agency ID: 590AD
+      %h4 Report for: #{Date.today.strftime('%B %d, %Y')}
+      = link_to 'Second Harvest', 'http://www.secondharvestmetrolina.org/'
+      - @month = "#{Date.today.strftime('%B')}"
+      - @prev_month = "#{Date.today.prev_month.strftime('%B')}"
+    #harvest_month
+      %br
+      -#= search_form_for @month do |f|
+      -#  = f.label Select Month
+      -#  = f.options_for_select(month_select)
+      -#  = f.submit
+      / = simple_form_for visit, html: { :class => 'form-inline' } do |f|
+      / = f.input :visited_on, label: 'Report Month', collection: month_select, input_html: {class: 'span2'}
+    .row
+    .span11
+    %h4 The number of different Households served during: #{@month}
+    - household_status_for do |stats|
+      .span5
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th Month
+              / - @visits = visits.all
+              %th Total Number of Visits
+              %th Total Number of Households
+              %th Total Number of Neighbors
+              - @h_month = visits.by_month(@month).select("DISTINCT(household_id)")
+              %tbody
+                %tr
+                  %td= @month
+                  %td= visits.by_month(@month).count
+                  %td= @h_month.count
+                  %td= @h_month.count
+                  count
+                %tr
+                  %td= @prev_month
+                  %td= visits.by_month(@prev_month).count
+                  %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
+                  %td= visits.by_month(@prev_month).select("DISTINCT(household_id)").count
+
+    %br
+    .row.span11
+      %h4 The total number of Individuals served during: #{@month}
+      - household_status_for(households.all) do |stats|
+        .span11
+          %table.table-bordered
+            %thead
+              %tr
+                %th  < 19
+                %th Between 18 & 64
+                %th Over 64
+                %th Total Served
+                %tbody
+                  %tr
+                    %td=  12
+                    %td=  14   #stats.neighbor_count
+                    %td=  30   #stats.neighbor_count
+                    %td=  5    #stats.neighbor_count
+  .row
+  %br
+
+
+
+
+
+
