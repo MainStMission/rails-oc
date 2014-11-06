@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  user: tmb
+  password:
+  encoding: unicode
+  database: db/pantry_development
+
+test: &test
+  adapter: postgresql
+  user: tmb
+  password: 
+  encoding: unicode
+  database: db/pantry_test
+
+production:
+  adapter: postgresql
+  database: <%=ENV['OPENSHIFT_APP_NAME']%>
+  username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
+  password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>
+  host: <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
+  port: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
+  min_messages: ERROR
+  reconnect: false
+
+cucumber:
+  <<: *test
+
