@@ -82,7 +82,7 @@ group :development, :test do
   gem 'yajl-ruby'
   gem 'rack-livereload'
   gem 'guard-cucumber'
-  gem 'guard-rspec'
+  # gem 'guard-rspec'
   gem 'timecop'
   gem 'sqlite3'
   gem 'foreman'
