@@ -3,14 +3,14 @@ development:
   user: tmb
   password:
   encoding: unicode
-  database: db/pantry_development
+  database: db/oc_development
 
 test: &test
   adapter: postgresql
   user: tmb
   password: 
   encoding: unicode
-  database: db/pantry_test
+  database: db/oc_test
 
 production:
   adapter: postgresql

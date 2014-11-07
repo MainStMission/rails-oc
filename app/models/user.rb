@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :admin, :login
+  attr_accessible :username,:first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :admin, :login
 
   attr_accessor :login
 
