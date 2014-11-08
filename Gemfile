@@ -37,7 +37,6 @@ gem "prawn-labels"
 
 
 group :assets do
-
   gem "Ascii85", "~> 1.0.2"
   gem 'coffee-rails', '~> 4.0.0'
   gem 'sass-rails'
