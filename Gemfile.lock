@@ -14,7 +14,7 @@ GIT
       prawn (>= 0.12.0)
 
 GIT
-  remote: git@github.com:sferik/rails_admin.git
+  remote: https://github.com/sferik/rails_admin.git
   revision: 176f5babf18b9c028a5bbc6a03ac59ae998f407a
   specs:
     rails_admin (0.6.5)
