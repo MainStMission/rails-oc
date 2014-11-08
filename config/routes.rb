@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 FoodPantry::Application.routes.draw do
 
-  resources :missions
+  # resources :missions
 
 
   #devise_for :admins
@@ -31,33 +31,33 @@ FoodPantry::Application.routes.draw do
  devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
 
 
-match 'print' => 'households#print', :via => :get
-
-  match 'new_visit' => 'households#new_visit', :via => :get
-
-  match 'time_clock' => 'time_clock#show'
-
-  match '/harvest' => 'visits#harvest', via: :get
-
-  match '/dashboard/household_summary'        => 'dashboard#household_summary'
-  match '/dashboard/visit_summary'            => 'dashboard#visit_summary'
-  match '/dashboard/neighbor_summary'         => 'dashboard#neighbor_summary'
-  match '/dashboard/donor_summary'            => 'dashboard#donor_summary'
-  match '/dashboard/donation_summary'         => 'dashboard#donation_summary'
+  get 'print' => 'households#print'
 
 
+  get 'new_visit' => 'households#new_visit'
+
+  # match 'time_clock' => 'time_clock#show'
+
+  get '/harvest' => 'visits#harvest'
+
+  get '/dashboard/household_summary'        => 'dashboard#household_summary'
+  get '/dashboard/visit_summary'            => 'dashboard#visit_summary'
+  get '/dashboard/neighbor_summary'         => 'dashboard#neighbor_summary'
+  get '/dashboard/donor_summary'            => 'dashboard#donor_summary'
+  get '/dashboard/donation_summary'         => 'dashboard#donation_summary'
 
 
-  authenticated :user do
+
+
     root :to => "users#index"
+
+   
+  unauthenticated :user do
+     root :to => redirect("/users/sign_in"), as: :unauthenticed_user
   end
+  #match 'new_user' :to => 'new_user_session', as: :unauthenticated_root
 
-
-  root :to => redirect("/users/sign_in")
-
-  #match 'new_user' :to => 'new_user_session'
-
-post '/household_end_point' => 'households#submit'
+  post '/household_end_point' => 'households#submit'
 
 
   devise_for :admin_users

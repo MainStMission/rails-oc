@@ -21,7 +21,7 @@ class HouseholdsController < ApplicationController
 
   def index
 
-      @q = Household.includes(:neighbors, :visits).search(params[:q])
+    @q = Household.includes(:neighbors, :visits).ransack(params[:q])
         @households = @q.result
 
   end

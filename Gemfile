@@ -1,29 +1,28 @@
 require "rbconfig"
 HOST_OS = RbConfig::CONFIG["host_os"]
 
-source "https://rubygems.org"
+source "https://rubygems.org" 
 
+gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 gem 'rack', '1.5.2'
-gem 'rails', '3.2.12'
+gem 'rails', '4.1.7'
+gem 'activeresource'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'protected_attributes'
 gem 'nokogiri'
 gem 'pg'
 gem 'squeel'
 gem 'rails_setup'
 gem 'devise'
-gem 'strong_parameters'
 gem 'permitters', '~> 0.0.1'
 gem 'cocoon'
-gem 'meta_search',    '>= 1.1.0.pre'
 gem 'ransack'
 gem 'simple_form'
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
 gem 'kaminari'
-gem 'rails_admin'
+gem 'rails_admin', :git => 'git@github.com:sferik/rails_admin.git'
 gem 'american_date'
 gem 'cancan'
-gem 'paper_trail', '~> 2'
-gem 'prawn'
+gem 'paper_trail', '~> 3.0.6'
 gem 'prawn-print', :git => 'git://github.com/barsoom/prawn-print.git'
 gem 'capistrano'
 gem 'simple-capistrano-unicorn'
@@ -33,30 +32,28 @@ gem 'unicorn'
 gem 'active_model_serializers'
 gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
-gem 'angularjs-rails-resource', '~> 0.1.5'
+gem 'angularjs-rails-resource'
 gem "prawn-labels"
 
 
 group :assets do
   gem "Ascii85", "~> 1.0.2"
-  gem 'coffee-rails'
-  gem 'sass-rails','~> 3.2'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'sass-rails'
   gem 'bootstrap-sass', '~> 2.3.1.0'
   gem 'uglifier'
   gem 'font-awesome-rails' , '~> 3.2.0.0'
   gem 'kaminari-bootstrap'
-  gem "jquery-rails", "2.3.0"
-  gem 'jquery_datepicker'
+  gem "jquery-rails"
   gem 'haml-rails'
   gem 'bourbon'
-  gem 'simple_form'
 end
 
-gem 'attr_encryptor'
+gem 'attr_encrypted'
 gem 'decent_exposure'
 
 group :development, :test do
-  # gem 'chrome_logger',  :require => 'chrome_logger/railtie'
+  gem 'chrome_logger',  :require => 'chrome_logger/railtie'
   gem 'rack-mini-profiler'
   gem 'cucumber-rails', :require => false
   gem 'capybara'
@@ -82,7 +79,6 @@ group :development, :test do
   gem 'yajl-ruby'
   gem 'rack-livereload'
   gem 'guard-cucumber'
-  # gem 'guard-rspec'
   gem 'timecop'
   gem 'sqlite3'
   gem 'foreman'

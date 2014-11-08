@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Visit < ActiveRecord::Base  
   # include ActiveModel::ForbiddenAttributesProtection
-attr_accessible :visit_note_title, :visit_note_text
+attr_accessible :visit_note_title, :visit_note_text, :neighbor_id, :visited_on, :household_id
   validates :household_id, presence: {message:'You must select a household'}
   validates :neighbor, presence: {message: 'You must select a Neighbor'}
   validates :neighbor, associated: {message: 'You must select a Neighbor'}
