@@ -3,7 +3,6 @@ HOST_OS = RbConfig::CONFIG["host_os"]
 
 source "https://rubygems.org" 
 
-gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 gem 'rack', '1.5.2'
 gem 'rails', '4.1.7'
 gem 'activeresource'
