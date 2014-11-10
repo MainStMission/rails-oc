@@ -5,7 +5,7 @@ class Volunteer < ActiveRecord::Base
 
  has_paper_trail
 
- default_scope order('last_name ASC')
+ default_scope { order('last_name ASC') }
 
  has_many :time_cards
 

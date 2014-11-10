@@ -17,7 +17,7 @@ attr_accessible :visit_note_title, :visit_note_text, :neighbor_id, :visited_on, 
   delegate :name, to: :neighbor, prefix: true, allow_nil: true
   delegate :household_name, to: :household, prefix: true, allow_nil: true
 
-  default_scope order('visited_on DESC')
+  default_scope { order('visited_on DESC') }
 
 
   has_paper_trail
