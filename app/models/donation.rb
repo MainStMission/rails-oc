@@ -9,7 +9,7 @@ class Donation < ActiveRecord::Base
 
   has_paper_trail
 
-  default_scope order('created_at DESC')
+  order('created_at DESC')
 
   def donor_name
     donor.name if donor
