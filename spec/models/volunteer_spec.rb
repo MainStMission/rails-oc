@@ -2,7 +2,7 @@
 require_relative "../spec_helper"
 require "timecop"
 
-describe Volunteer do
+describe Volunteer, :type => :model do
   subject(:volunteer) {
     FactoryGirl.create(:volunteer, first_name: "Kermit", last_name: "Frog")
   }
@@ -16,7 +16,10 @@ describe Volunteer do
     Timecop.return
   end
 
-  its(:name) { should eq("Kermit Frog") }
+  describe '#name' do
+    subject { super().name }
+    it { is_expected.to eq("Kermit Frog") }
+  end
 
   specify "#sign_in signs in a volunteer with the current time" do
     time_card = volunteer.sign_in
@@ -51,9 +54,9 @@ describe Volunteer do
   end
 end
 
-describe NotSignedInTime do
+describe NotSignedInTime, :type => :model do
   it "prints a helpful message" do
-    NotSignedInTime.to_s.should match(/not signed in/i)
+    expect(NotSignedInTime.to_s).to match(/not signed in/i)
   end
 end
 

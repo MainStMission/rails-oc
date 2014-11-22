@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require_relative "../spec_helper"
 
-describe DonorsController do
+describe DonorsController, :type => :controller do
   let!(:donor) { FactoryGirl.create(:donor) }
 
   describe "POST create" do

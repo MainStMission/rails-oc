@@ -3,7 +3,7 @@ require_relative "../spec_helper"
 
 
 
-describe VolunteersController do
+describe VolunteersController, :type => :controller do
   let!(:volunteer) { FactoryGirl.create(:volunteer) }
 
   describe "GET sign_in" do

@@ -3,11 +3,11 @@ require_relative "../spec_helper"
 
 SSN = '123-45-6789'
 
-describe Neighbor do
+describe Neighbor, :type => :model do
 
   ## Quick Shoulda test for the relation
 
-  it {should belong_to(:household)}
+  it {is_expected.to belong_to(:household)}
 
   ## Shanes SSN testing
 
@@ -25,26 +25,26 @@ describe Neighbor do
       neighbor_id = neighbor.id
       neighbor = Neighbor.find_by_id(neighbor_id)
 
-      neighbor.ssn.should == SSN
-      neighbor.encrypted_ssn.should_not == SSN
+      expect(neighbor.ssn).to eq(SSN)
+      expect(neighbor.encrypted_ssn).not_to eq(SSN)
     end
 
     it "should be salted" do
       another_neighbor = Neighbor.new
       another_neighbor.ssn = SSN
 
-      neighbor.encrypted_ssn.should_not == another_neighbor.encrypted_ssn
+      expect(neighbor.encrypted_ssn).not_to eq(another_neighbor.encrypted_ssn)
     end
 
     ### Let's go with factories
     ##
 
     it "should have a valid factory" do
-      create(:neighbor).should be_valid
+      expect(create(:neighbor)).to be_valid
     end
 
     it "Returns a neighbors full name as a string" do
-      create(:neighbor, first_name: "Tom", last_name:"Brooke").name.should == "Tom Brooke"
+      expect(create(:neighbor, first_name: "Tom", last_name:"Brooke").name).to eq("Tom Brooke")
     end
   end
 end

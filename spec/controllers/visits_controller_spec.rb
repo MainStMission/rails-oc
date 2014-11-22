@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
 require_relative "../spec_helper"
 
-describe VisitsController do
+describe VisitsController, :type => :controller do
 end

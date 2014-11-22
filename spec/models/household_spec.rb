@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Household do
+describe Household, :type => :model do
 
-  it { should have_many(:neighbors) }
+  it { is_expected.to have_many(:neighbors) }
 
 
-  it { should have_many(:visits) }
+  it { is_expected.to have_many(:visits) }
 
 
   # it 'has a valid factory' do

@@ -1,10 +1,13 @@
 # -*- encoding : utf-8 -*-
 require_relative "../spec_helper"
 
-describe User do
+describe User, :type => :model do
   subject(:user) {
     FactoryGirl.create(:user, first_name: "Kermit", last_name: "Frog")
   }
 
-  its(:name) { should eq("Kermit Frog") }
+  describe '#name' do
+    subject { super().name }
+    it { is_expected.to eq("Kermit Frog") }
+  end
 end

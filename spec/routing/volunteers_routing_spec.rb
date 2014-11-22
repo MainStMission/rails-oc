@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require_relative "../spec_helper"
 
-describe VolunteersController do
+describe VolunteersController, :type => :routing do
   describe "routing" do
     it "routes to #sign_in" do
       route = get("/volunteers/1/sign_in")

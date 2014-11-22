@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HouseholdsController do
+describe HouseholdsController, :type => :controller do
   describe "GET #index" do
         it "populates an array of Households"
         it "renders the :index view"

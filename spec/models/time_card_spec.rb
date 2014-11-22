@@ -2,7 +2,7 @@
 require_relative "../spec_helper"
 require "timecop"
 
-describe TimeCard do
+describe TimeCard, :type => :model do
   let(:volunteer) { FactoryGirl.create(:volunteer) }
 
   before do
@@ -57,7 +57,7 @@ describe TimeCard do
       TimeCard.clock_in(volunteer)
       signed_in = TimeCard.signed_in?(volunteer)
 
-      expect(signed_in).to be_true
+      expect(signed_in).to be_truthy
     end
   end
 end
