@@ -56,7 +56,7 @@ def thumbs
     'No Visits Yet'
   end
 
-end
+ end
 
 # def print_receipt
 #    if @visit?

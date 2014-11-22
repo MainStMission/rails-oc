@@ -2,9 +2,27 @@
 // Navbars (Redux)
 // --------------------------------------------------
 
+$baseLineHeight: 10px;
+$navbarFontSize: 12px;
+$navbarHeight: 10px;
+$navbarBackgroundHighlight: blue;
+$navbarBackground: white;
+$navbarBorder: none;
+$navbarBrandColor: blue;
+$navbarText: black;
+$navbarLinkColor: blue;
+$navbarLinkColorHover: blue;
+
+
 
 // COMMON STYLES
 // -------------
+
+
+
+//== Navbar
+//
+//##
 
 // Base class and wrapper
 .navbar {
@@ -25,7 +43,7 @@
   padding-right: 20px;
   @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
   border: 1px solid $navbarBorder;
-  @include border-radius($baseBorderRadius);
+//  @include border-radius($baseBorderRadius);
   @include box-shadow(0 1px 4px rgba(0,0,0,.065));
 
   // Prevent floats from breaking the navbar
@@ -287,7 +305,7 @@
   width: 18px;
   height: 2px;
   background-color: #f5f5f5;
-  @include border-radius(1px);
+//  @include border-radius(1px);
   @include box-shadow(0 1px 0 rgba(0,0,0,.25));
 }
 .btn-navbar .icon-bar + .icon-bar {
@@ -383,7 +401,7 @@
     right: 100%;
     margin-left: 0;
     margin-right: -1px;
-    @include border-radius(6px 0 6px 6px);
+//    @include border-radius(6px 0 6px 6px);
   }
 }
 

@@ -6,7 +6,8 @@ source "https://rubygems.org"
 gem 'rack', '1.5.2'
 gem 'rails', '4.1.7'
 gem 'activeresource'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets', '2.11.0'
 gem 'protected_attributes'
 gem 'nokogiri'
 gem 'pg'
@@ -31,27 +32,31 @@ gem 'unicorn'
 gem 'active_model_serializers'
 gem 'turbolinks'
 gem 'restful_json', '~> 4.2.0'
-gem 'angularjs-rails-resource'
 gem "prawn-labels"
 
 
-group :assets do
-  gem "Ascii85", "~> 1.0.2"
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'sass-rails'
-  gem 'bootstrap-sass', '~> 2.3.1.0'
-  gem 'uglifier'
-  gem 'font-awesome-rails' , '~> 3.2.0.0'
-  gem 'kaminari-bootstrap'
-  gem "jquery-rails"
-  gem 'haml-rails'
-  gem 'bourbon'
-end
+gem 'uglifier', '>= 1.3.0'
+gem 'abstract', '~> 1.0.0'
+
+gem "Ascii85", "~> 1.0.2"
+gem 'coffee-rails', '~> 4.0.0'
+gem 'bourbon'
+gem 'sass-rails', '~> 4.0.2'
+gem 'sass', '3.2.19'
+# gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', :git => 'https://github.com/twbs/bootstrap-sass.git', :branch => 'next'
+gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
+gem 'kaminari-bootstrap'
+gem 'jquery-rails'
+gem 'haml-rails'
+
 
 gem 'attr_encrypted'
 gem 'decent_exposure'
 
 group :development, :test do
+  gem 'spring'
+  gem 'bullet'
   gem 'chrome_logger',  :require => 'chrome_logger/railtie'
   gem 'rack-mini-profiler'
   gem 'cucumber-rails', :require => false
@@ -59,7 +64,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'launchy'
-  gem 'rspec-rails', '~> 2.12'
+  gem 'rspec-rails', '~> 3.01'
   gem 'faker'
   gem 'pry-rails'
   gem 'pdf-inspector', :require => "pdf/inspector"
