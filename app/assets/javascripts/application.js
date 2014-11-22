@@ -21,6 +21,9 @@
  //= require rails.validations.simple_form
  //= require jquery.timeago
  //= require household
+ //= require react
+ //= require react_ujs
+ //= require components
  //= require_tree .
 
 $(function() {

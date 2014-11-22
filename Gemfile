@@ -39,6 +39,7 @@ gem 'abstract', '~> 1.0.0'
 
 gem "Ascii85", "~> 1.0.2"
 gem 'coffee-rails', '~> 4.0.0'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
