@@ -40,6 +40,7 @@ gem 'abstract', '~> 1.0.0'
 gem "Ascii85", "~> 1.0.2"
 gem 'coffee-rails', '~> 4.0.0'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'sprockets-coffee-react'
 gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
@@ -83,7 +84,6 @@ group :development, :test do
   gem 'timecop'
   gem 'sqlite3'
   gem 'foreman'
-  gem 'zeus'
   gem 'spork', '~> 1.0rc'
 
 end

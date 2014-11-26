@@ -1,27 +1,26 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 
 describe DonorsController, :type => :controller do
   let!(:donor) { FactoryGirl.create(:donor) }
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new donor" do
+  describe 'POST create' do
+    describe 'with valid params' do
+      it 'creates a new donor' do
         expect{
           post :create, {donor: {name: "bob"}}
         }.to change{Donor.count}.by(1)
       end
 
-      it "redirects to the donor index" do
+      it 'redirects to the donor index' do
         post :create, {donor: {name: "bob"}}
         expect(response).to redirect_to(new_donation_path)
       end
     end
 
-    describe "with invalid params" do
+    describe 'with invalid params' do
       it "re-renders the 'new' template" do
-        pending "until you have invalid params you can't test this"
-        post :create, {:donor => {}}
+        post :create, {donor: {name: ""}}
         expect(response).to render_template("new")
       end
     end

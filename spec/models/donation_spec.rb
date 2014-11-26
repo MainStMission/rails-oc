@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative "../rails_helper"
 
 describe Donation, :type => :model do
   subject(:donation) { FactoryGirl.create(:donation) }

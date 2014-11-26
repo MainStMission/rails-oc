@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
+require_relative '../rails_helper'
 
-describe DonationsController, :type => :controller do
+describe(DonationsController, :type => :controller) do
   let!(:donation) { FactoryGirl.create(:donation) }
 
   before(:each) do
@@ -11,16 +11,16 @@ describe DonationsController, :type => :controller do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new donation" do
-        expect{
+        expect {
           post :create, {donation: {weight: 10}}
-        }.to change{Donation.count}.by(1)
+        }.to change { Donation.count }.by(1)
       end
 
     end
 
     describe "with invalid params" do
       it "re-renders the 'new' template" do
-          post :create, {donation: {weight: ' '}}
+        post :create, {donation: {weight: ' '}}
         expect(response).to render_template("new")
       end
     end
@@ -51,7 +51,7 @@ describe DonationsController, :type => :controller do
     it "destroys the requested donation" do
       expect {
         delete :destroy, {id: donation.to_param}
-      }.to change{Donation.count}.by(-1)
+      }.to change { Donation.count }.by(-1)
     end
 
     it "redirects to the donations list" do

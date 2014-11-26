@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
-require_relative "../spec_helper"
-require "timecop"
+require_relative "../rails_helper"
 
 describe Volunteer, :type => :model do
   subject(:volunteer) {
@@ -41,22 +40,22 @@ describe Volunteer, :type => :model do
       expect(volunteer).to be_signed_in
     end
   end
-
-  describe "#sign_in_time" do
-    specify "returns time a volunteer signed in if they have" do
-      volunteer.sign_in
-      expect(volunteer.sign_in_time).to eq(now)
-    end
-
-    specify "returns NotSignedInTime if a volunteer hasn't signed in" do
-      expect(volunteer.sign_in_time).to eq(NotSignedInTime)
-    end
-  end
-end
-
-describe NotSignedInTime, :type => :model do
-  it "prints a helpful message" do
-    expect(NotSignedInTime.to_s).to match(/not signed in/i)
-  end
+ #
+ #  describe "#sign_in_time" do
+ #    specify "returns time a volunteer signed in if they have" do
+ #      volunteer.sign_in
+ #      expect(volunteer.sign_in_time).to eq(now)
+ #    end
+ #
+ #    specify "returns NotSignedInTime if a volunteer hasn't signed in" do
+ #      expect(volunteer.sign_in_time).to eq(NotSignedInTime)
+ #    end
+ #  end
+ #
+ # describe NotSignedInTime, :type => :model do
+ #   it "prints a helpful message" do
+ #     expect(NotSignedInTime.to_s).to match(/not signed in/i)
+ #   end
+ # end
 end
 

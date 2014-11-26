@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative "../rails_helper"
 
 describe AdminUser, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"

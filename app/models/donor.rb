@@ -2,6 +2,8 @@
 class Donor < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
+  validates :first_name, presence: {message: 'Donor must have a first name'}
+  validates :last_name, presence: {message: 'Donor must have a last name'}
   has_paper_trail
 
   def name

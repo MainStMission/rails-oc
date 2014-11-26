@@ -3,6 +3,8 @@ class Volunteer < ActiveRecord::Base
 
  include ActiveModel::ForbiddenAttributesProtection
 
+ validates :first_name, presence: {message: 'Volunteer must have a first name'}
+ validates :last_name, presence: {message: 'Volunteer must have a last name'}
  has_paper_trail
 
  default_scope { order('last_name ASC') }
