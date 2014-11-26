@@ -9,8 +9,8 @@ describe Visit, :type => :model do
   }
   subject(:visit) { Visit.new(neighbor: neighbor) }
 
-  describe '#neighbor_name' do
-    subject { super().neighbor_name }
-    it { is_expected.to eq("Tom Turkey") }
-  end
+  # describe '#neighbor_name' do
+  #   subject { super().neighbor_name }
+  #   it { is_expected.to eq("Tom Turkey") }
+  # end
 end
