@@ -206,7 +206,7 @@ table#households {
   background-color: white;
   -webkit-background-clip: padding-box;
   overflow: hidden;
-  @include border-radius(3px);
+//  @include border-radius(3px);
   @include box-shadow(0 1px 4px 1px hsla(0, 0%, 0%, 0.4));
 
   .content {
@@ -405,6 +405,6 @@ tr.volunteer {
   font-size:  150%;
 }
 .btn {
-  @include border-radius(3px);
+//  @include border-radius(3px);
 }
 

@@ -9,6 +9,12 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # React
+  #
+  # Rails::Application.configure do
+  #   config.react.variant = :development
+  # end
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -35,6 +41,7 @@ Rails.application.configure do
      Bullet.add_footer = true
      Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
   end
+
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
