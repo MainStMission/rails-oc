@@ -6,21 +6,10 @@ GIT
       prawn (>= 0.12.0)
 
 GIT
-  remote: git://github.com/reactjs/react-rails.git
-  revision: 47b81c3e35088f90686ed71aafeebf5c3abc6cf2
-  specs:
-    react-rails (1.0.0)
-      coffee-script-source (~> 1.8)
-      connection_pool
-      execjs
-      rails (>= 3.2)
-      tilt
-
-GIT
   remote: https://github.com/sferik/rails_admin.git
-  revision: 34f55864f0a7cecf3da7f38c9a8de082b3f28030
+  revision: dbd127d116ec4c3f40442ff17f21e27d035fe003
   specs:
-    rails_admin (0.6.7)
+    rails_admin (0.6.8)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
       font-awesome-rails (>= 3.0, < 5)
@@ -87,7 +76,7 @@ GEM
     arel (6.0.0)
     attr_encrypted (1.3.4)
       encryptor (>= 1.3.0)
-    autoprefixer-rails (5.1.11)
+    autoprefixer-rails (5.2.0)
       execjs
       json
     backup (3.0.27)
@@ -130,8 +119,6 @@ GEM
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
-    coffee-react (3.0.1)
-      execjs
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -148,7 +135,6 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    connection_pool (2.2.0)
     cucumber (1.3.19)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -164,7 +150,7 @@ GEM
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     decent_exposure (2.3.2)
-    devise (3.4.1)
+    devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -198,7 +184,7 @@ GEM
       multi_json (~> 1.3)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    guard (2.12.5)
+    guard (2.12.6)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
@@ -241,7 +227,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
-    json (1.8.2)
+    json (1.8.3)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -267,10 +253,10 @@ GEM
       rack-contrib (~> 1.1)
       railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
-    mime-types (2.5)
+    mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.6.1)
-    multi_json (1.11.0)
+    minitest (5.7.0)
+    multi_json (1.11.1)
     multi_test (0.1.2)
     neat (1.7.2)
       bourbon (>= 4.0)
@@ -364,7 +350,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
-    rb-fsevent (0.9.4)
+    rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     remotipart (1.2.1)
@@ -372,28 +358,29 @@ GEM
       railties (>= 4.2.0, < 5)
     restful_json (4.2.0)
       activesupport (>= 3.1.0)
-    rspec-core (3.1.7)
-      rspec-support (~> 3.1.0)
-    rspec-expectations (3.1.2)
+    rspec-core (3.3.0)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.1.0)
-    rspec-mocks (3.1.3)
-      rspec-support (~> 3.1.0)
-    rspec-rails (3.1.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 3.1.0)
-      rspec-expectations (~> 3.1.0)
-      rspec-mocks (~> 3.1.0)
-      rspec-support (~> 3.1.0)
-    rspec-support (3.1.2)
+      rspec-support (~> 3.3.0)
+    rspec-mocks (3.3.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-rails (3.3.0)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
     ruby-rc4 (0.1.5)
     ruby_gntp (0.3.4)
-    ruby_parser (3.6.6)
+    ruby_parser (3.7.0)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
-    sass (3.4.13)
+    sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -402,7 +389,7 @@ GEM
       tilt (~> 1.1)
     sassy-buttons (0.2.6)
       compass (>= 0.12.2)
-    sexp_processor (4.5.1)
+    sexp_processor (4.6.0)
     shellany (0.0.1)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -420,11 +407,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-coffee-react (3.0.1)
-      coffee-react (>= 3.0.1)
-      coffee-script
-      sprockets
-      tilt
     sprockets-rails (2.3.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -433,7 +415,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    timecop (0.7.3)
+    timecop (0.7.4)
     timers (4.0.1)
       hitimes
     ttfunk (1.4.0)
@@ -513,9 +495,8 @@ DEPENDENCIES
   ransack
   rb-fsevent
   rb-inotify
-  react-rails (~> 1.0.0.pre)!
   restful_json (~> 4.2.0)
-  rspec-rails (~> 3.1.0)
+  rspec-rails
   ruby_gntp
   sass-rails
   sassy-buttons
@@ -523,7 +504,6 @@ DEPENDENCIES
   simple_form
   spring
   sprockets (= 2.11.0)
-  sprockets-coffee-react
   sqlite3
   timecop
   turbolinks

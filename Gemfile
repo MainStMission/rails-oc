@@ -33,8 +33,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'abstract', '~> 1.0.0'
 gem "Ascii85", "~> 1.0.2"
 gem 'coffee-rails', '~> 4.0.0'
-gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
-gem 'sprockets-coffee-react'
 gem 'bourbon'
 gem 'bootstrap-sass'
 gem 'sassy-buttons'
@@ -59,7 +57,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'launchy'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'pdf-inspector', :require => "pdf/inspector"
