@@ -46,7 +46,6 @@ custom_plan.rb
 
 db/*.db
 
-bin/
 
 # YARD artifacts
 .yardoc
