@@ -24,7 +24,7 @@
   zoom: 1;
   *display: inline;
   .chzn-drop {
-    @include border-radius(4px);
+    /* @include border-radius(4px); */
     @include box-shadow(0 4px 5px rgba(0, 0, 0, 0.15));
     background: #fff;
     border: 1px solid #CCC;
@@ -42,7 +42,7 @@
 
 .chzn-container-single {
   .chzn-single {
-    @include border-radius(3px);
+    /* @include border-radius(3px); */
     @include box-shadow(#{0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1)});
     @include background-clip(padding-box);
     @include gradient-vertical-three-colors(#ffffff, #f6f6f6, 50%, #f4f4f4);
@@ -109,7 +109,7 @@
     color: #999;
   }
   .chzn-drop {
-    @include border-radius(3px);
+    /* @include border-radius(3px); */
     @include background-clip(padding-box);
     -moz-background-clip   : padding;
   }
@@ -135,7 +135,7 @@
 
 .chzn-container-multi {
   .chzn-choices {
-    @include border-radius($inputBorderRadius);
+    /* @include border-radius($inputBorderRadius); */
     @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
     @include transition(#{border linear .2s, box-shadow linear .2s});
     background-color: $inputBackground !important;
@@ -176,7 +176,7 @@
       }
     }
     .search-choice {
-      @include border-radius(3px);
+      /* @include border-radius(3px); */
       @include box-shadow(#{0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05)});
       @include gradient-vertical-three-colors(#ffffff, #f6f6f6, 50%, #f4f4f4);
       @include background-clip(padding-box);
