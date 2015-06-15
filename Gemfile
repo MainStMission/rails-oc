@@ -1,12 +1,11 @@
-require "rbconfig"
-HOST_OS = RbConfig::CONFIG["host_os"]
+# require "rbconfig"
+# HOST_OS = RbConfig::CONFIG["host_os"]
 
 source "https://rubygems.org" 
 
 gem 'rack'
 gem 'rails', '4.2'
 gem 'activeresource'
-gem 'sprockets', '2.11.0'
 gem 'protected_attributes'
 gem 'nokogiri'
 gem 'pg'
@@ -35,7 +34,7 @@ gem "Ascii85", "~> 1.0.2"
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bourbon'
 gem 'bootstrap-sass', '~> 3.3.4'
-gem 'sass-rails', '>= 3.2' 
+gem 'sass-rails', '>= 5.0.3' 
 gem 'sassy-buttons'
 gem 'neat'
 gem 'font-awesome-rails'

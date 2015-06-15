@@ -18,7 +18,10 @@ $navbarLinkColor: $navbarText;
 $navbarLinkColorHover: $navbarHover;
 $navbarLinkBackgroundHover: rgba(255,255,255,0.5);
 $bodyBackground: rgba(1,1,1,0.0);
-
+$baseLineHeight: 1.5em;
+$inputBackground: white;
+$grayLight: gray;
+$inputBorder: 1px;
 $btnPrimaryBackground: #A4B8CA;
 $btnPrimaryBackgroundHighlight: darken($btnPrimaryBackground, 10%);
 
@@ -105,7 +108,7 @@ html {
   input[type="submit"] {
     vertical-align: top ;
     height: 29px;
-    /* @include border-radius(3px); */
+    border-radius: 3px;
   }
 }
 
@@ -119,7 +122,7 @@ html {
   input[type="submit"] {
     vertical-align: top ;
     height: 29px;
-    /* @include border-radius(3px); */
+    border-radius: 3px;
   }
 }
 
@@ -202,11 +205,12 @@ table#households {
   margin-left: 20px;
   width: 850px;
 }
-.panel {
+.panel {  
   background-color: white;
-  -webkit-background-clip: padding-box;
+  /* -webkit-background-clip: padding-box; */
   overflow: hidden;
-  /* @include border-radius(3px); */
+
+  border-radius: 3px;
   @include box-shadow(0 1px 4px 1px hsla(0, 0%, 0%, 0.4));
 
   .content {
@@ -405,6 +409,6 @@ tr.volunteer {
   font-size:  150%;
 }
 .btn {
- /* @include border-radius(3px); */
+ border-radius: 3px;
 }
 

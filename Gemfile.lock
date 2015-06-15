@@ -498,12 +498,11 @@ DEPENDENCIES
   restful_json (~> 4.2.0)
   rspec-rails
   ruby_gntp
-  sass-rails (>= 3.2)
+  sass-rails (>= 5.0.3)
   sassy-buttons
   shoulda
   simple_form
   spring
-  sprockets (= 2.11.0)
   sqlite3
   timecop
   turbolinks
