@@ -10,5 +10,5 @@
 5. Run `rake setup`
 6. Make some changes
 7. Test the changes with `bundle exec rake`
-8. Submit a Pull Request on github (We would like to review the code)
+8. Submit a Pull Request on GitHub (We would like to review the code)
 9. Keep being AWESOME!
